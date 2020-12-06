@@ -7,11 +7,35 @@ $( function () {
     $( '.login-form' ).show()
     $('.reg-form').hide()
   } )
-  var form=layui.form
+  let form=layui.form
+ 
   form.verify( {
     pwd: [
       /^[\S]{6,12}$/
       ,'密码必须6到12位，且不能出现空格'
-    ] 
+    ],
+    repwd: function ( value ) {
+      let pwd=$( '.reg-form [name="password"]' ).val()
+      if ( pwd!==value ) {
+        return '两次密码不一致！'
+      }
+    }
+  } )
+  let layer = layui.layer
+  $( '#reg-form' ).on( 'submit', function (e) {
+    e.preventDefault()
+    
+    let data={
+      username: $( '#reg-form [ name="username"]' ).val(),
+      password: $( '#reg-form [name="password"]' ).val()
+    }
+    console.log(data);
+    $.post('http://ajax.frontend.itheima.net/api/reguser', data, function(res) {
+      if (res.status !== 0) {
+        return layer.msg(res.message)
+      }
+      layer.msg( '注册成功，请登录！' )
+      $( '.reg-form a' ).click()
+    })
   })
 })
