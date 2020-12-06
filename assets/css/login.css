@@ -31,3 +31,14 @@ body {
   display: flex;
   justify-content: flex-end;
 }
+.layui-form-item {
+  position: relative;
+}
+.layui-form-item i {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+.layui-input {
+  padding-left: 30px;
+}
