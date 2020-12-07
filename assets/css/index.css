@@ -24,6 +24,8 @@ iframe {
   line-height: 60px;
   text-align: center;
   user-select: none;
+}
+.layui-side-scroll .userinfo {
   border-bottom: 2px solid #282b33;
 }
 .text-avator {

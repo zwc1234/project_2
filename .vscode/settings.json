@@ -1,0 +1,4 @@
+{
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "merge-conflict.autoNavigateNextConflict.enabled": true
+}
