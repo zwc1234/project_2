@@ -86,10 +86,7 @@ $( function () {
   }
   function render() {
     let data=JSON.parse( localStorage.getItem( 'data' ) )
-    console.log( data );
-    let nme=''
     $.get( '/my/article/cates', function ( res ) {
-      console.log( res );
       form.val('form-pub',data)
     } )
     
