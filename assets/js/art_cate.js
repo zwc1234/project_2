@@ -79,7 +79,30 @@ $( function () {
       }
       
     })
-  })
+  } )
+  
+  $( 'tbody' ).on( 'click', '.btn-delete', function () {
+    let id=$( this ).attr( 'data-id' )
+
+    layer.confirm( '确认删除?', { icon: 3, title: '提示' }, function ( index ) {
+      $.ajax( {
+        method: 'GET',
+        url: '/my/article/deletecate/'+id,
+        success: function (res) {
+          if ( res.status!==0 ) {
+            return layer.msg(res.message)
+          }
+          layer.msg( res.message )
+  
+
+          initArtCateList()
+        }
+      })
+     
+      layer.close(index);
+    } );
+   
+  } )
 
 
 } )
