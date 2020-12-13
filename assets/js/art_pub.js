@@ -87,10 +87,9 @@ $( function () {
   function render() {
     let data=JSON.parse( localStorage.getItem( 'data' ) )
     $.get( '/my/article/cates', function ( res ) {
-      form.val('form-pub',data)
+      form.val( 'form-pub', data )
+      localStorage.removeItem('data')
     } )
-    
-   
   }
   render()
   

@@ -127,7 +127,7 @@ $( function () {
 
         localStorage.setItem('data',JSON.stringify(res.data))
         location.href = '/arcitle/art_pub.html'
-      
+        
 
         }
     } )
